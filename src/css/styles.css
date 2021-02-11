@@ -6,8 +6,15 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  background-image: url("https://images7.alphacoders.com/345/345366.jpg");
+  background-blend-mode: darken;
+
 }
+body {
+  background-image: url(".././assets/images/background.jpg");
+  background-size: cover;
+  border-top: 3vw solid rgb(128, 127, 127, 0.2);
+}
+
 #output {
   position: absolute;
   width: 100%;
@@ -15,19 +22,20 @@ html, body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 2%;
 }
 .new-entry button{
   position: absolute;
   top: 2%;
   left: 2%;
 }
-.new-entry{
+.new-entry {
   border: 1px solid rgb(109, 109, 109);
-  width: 50%;
   background-color: rgba(98, 116, 147, 0.4);
   text-align: center;
   box-shadow: inset -1px -2px 7px 3px #673ab7;
   padding: 15px;
+  width: 50%;
 }
 .new-entry img {
   width: 300px;
@@ -35,7 +43,7 @@ html, body {
   border-radius: 5px;
 }
 
-#description {
+.description {
   color: rgb(143, 211, 185);
   font-size: 15px;
   font-weight: bold;

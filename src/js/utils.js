@@ -1,3 +1,1 @@
-export const isContent = (data, optionalReturn = '') => {
-  return !!data ? `${data}` : optionalReturn;
-};
+export const isContent = (data, optionalReturn = '') =>  Boolean(data) ? `${data}` : optionalReturn;

@@ -2,52 +2,38 @@ import BikeService from './js/bike-service.js';
 import $ from 'jquery';
 import './css/styles.css';
 import {isContent} from './js/utils.js'
+import bikeBasic from './assets/images/bikebasic.jpg';
 
 async function makeCall(city) {
   const response = await BikeService.getBike(city);
 
   document.getElementById("output").innerHTML = response.bikes.map(
-    (data, i) => {
+    (data) => {
       const {
         title, 
         thumb, 
         description,
         stolen_location
-      } = data
+      } = data;
       return`
         <div class="new-entry">
           <h3>Someone lost a ${title}</h3>
-          <img src="${isContent(thumb, "assets/images/bikebasic.jpg")}">
-          <div id="location">
+          <img src="${isContent(thumb, bikeBasic)}">
+          <div class="location">
             ${isContent(stolen_location)}
           </div>
-          <div id="description">
+          <div class="description">
             ${isContent(description, "No Content Provided")}
           </div>
         </div>
       `
     }
-  ).join('')
-
-  // for (let i = 0; i < response.bikes.length; i++) {
-  //   bikeThumbArr.push(`
-  //     <div class="new-entry">
-  //       <h3>Someone lost a ${response.bikes[i].title}</h3>
-  //       <img src="${isContent(response.bikes[i].thumb, "assets/images/bikebasic.jpg")}">
-  //       <div id="location">
-  //         ${isContent(response.bikes[i].description.stolen_location)}
-  //       </div>
-  //       <div id="description">
-  //         ${isContent(response.bikes[i].description, "No Content Provided")}
-  //       </div>
-  //     </div>`
-  //   );
-  // }
-  // document.getElementById("output").innerHTML = bikeThumbArr.join('')
+  ).join('');
 }
 $(document).ready(function(){
+  makeCall('portland');
   $('#click-me').click(function(event) {
-  const cit = $('#city').val(); 
-    makeCall(cit);
+  const city = $('#city').val(); 
+    
   })
 });
