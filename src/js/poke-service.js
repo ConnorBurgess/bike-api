@@ -1,6 +1,6 @@
-export default class BikeService {
-  static async getBike(city) {
-    const url = `https://bikeindex.org:443/api/v3/search?page=1&per_page=6&location=${city}&distance=10&stolenness=proximity`
+export default class PokeService {
+  static async getPokemon(random) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${random}/`
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -11,6 +11,5 @@ export default class BikeService {
       return Error(error.message);
     }
   }
-} 
-
+}
 
